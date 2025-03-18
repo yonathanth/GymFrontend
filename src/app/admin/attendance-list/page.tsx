@@ -44,7 +44,7 @@ const GymAttendanceList = () => {
         setMembers(data);
       } catch (error) {
         console.error("Error fetching attendance data:", error);
-        setMembers([]); // Set to empty array in case of an error
+        setMembers([]); // Set to empty array in case o an error
       } finally {
         setLoading(false);
       }
