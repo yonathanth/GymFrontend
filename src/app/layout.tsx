@@ -10,11 +10,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: {
-    default: "Robi Fitness Hawassa",
-    template: "%s | Robi Fitness Hawassa",
+    default: "Demo Gym System",
+    template: "%s | Demo Gym System",
   },
   description:
-    "Robi Fitness is a premier Health and Fitness Center in Hawassa, offering top-notch fitness services and facilities.",
+    "This is a demo gym system built for Gym Owners to manage their members and attendance. Anything here could be improved and be changed according to your interests.",
 };
 
 export default async function RootLayout({
@@ -32,9 +32,7 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`font-jost ${inter.className}`}>
-              {children}
-      </body>
+      <body className={`font-jost ${inter.className}`}>{children}</body>
     </html>
   );
 }
