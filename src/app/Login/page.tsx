@@ -90,59 +90,64 @@ const Login = () => {
         />
       </div>
       <div className="lg:w-1/2 w-full my-auto p-8 sm:p-20 bg-black">
-  <div className="text-white bg-black bg-opacity-75 p-8 rounded-md">
-    <h2 className="text-3xl mb-2 text-left">Welcome to Our Gym</h2>
-    <p className="text-sm text-gray-400 mb-8">Achieve your fitness goals with us. Join today!</p>
-    <form
-      className="flex flex-col items-center w-full"
-      onSubmit={handleLogin}
-    >
-      <div className="mb-4 w-full">
-        <input
-          type="number"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          className="w-full p-2 placeholder-white/40 rounded-lg border-2 border-white/20 bg-black focus:outline-none focus:ring-[0.5px] focus:ring-customBlue"
-          placeholder="Enter your phone number"
-        />
+        <div className="text-white bg-black bg-opacity-75 p-8 rounded-md">
+          <h2 className="text-3xl mb-2 text-left">Welcome</h2>
+          <p className="text-sm text-gray-400 mb-8">
+            Achieve your Business goals with us.
+          </p>
+          <form
+            className="flex flex-col items-center w-full"
+            onSubmit={handleLogin}
+          >
+            <div className="mb-4 w-full">
+              <input
+                type="number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                className="w-full p-2 placeholder-white/40 rounded-lg border-2 border-white/20 bg-black focus:outline-none focus:ring-[0.5px] focus:ring-customBlue"
+                placeholder="Enter your phone number"
+              />
+            </div>
+            <div className="mb-6 w-full relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full p-2 placeholder-white/40 rounded-lg border-2 border-white/20 bg-black focus:outline-none focus:ring-[0.5px] focus:ring-customBlue"
+                placeholder="Enter your password"
+              />
+              <FontAwesomeIcon
+                icon={showPassword ? faEyeSlash : faEye}
+                className="absolute top-1/2 right-8 transform -translate-y-1/2 text-white cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full p-2 font-semibold rounded-lg bg-customBlue hover:bg-customHoverBlue text-black flex items-center justify-center"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <div className="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                "Login"
+              )}
+            </button>
+          </form>
+          <div className="mt-4 text-center">
+            <p className="text-sm text-gray-400">
+              Don't have an account?{" "}
+              <Link href="/Register" className="text-customBlue">
+                Sign Up
+              </Link>
+            </p>
+          </div>
+          {errorMessage && (
+            <div className="mt-4 text-red-500 text-center">{errorMessage}</div>
+          )}
+        </div>
       </div>
-      <div className="mb-6 w-full relative">
-        <input
-          type={showPassword ? "text" : "password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 placeholder-white/40 rounded-lg border-2 border-white/20 bg-black focus:outline-none focus:ring-[0.5px] focus:ring-customBlue"
-          placeholder="Enter your password"
-        />
-        <FontAwesomeIcon
-          icon={showPassword ? faEyeSlash : faEye}
-          className="absolute top-1/2 right-8 transform -translate-y-1/2 text-white cursor-pointer"
-          onClick={() => setShowPassword(!showPassword)}
-        />
-      </div>
-      <button
-        type="submit"
-        className="w-full p-2 font-semibold rounded-lg bg-customBlue hover:bg-customHoverBlue text-black flex items-center justify-center"
-        disabled={isLoading}
-      >
-        {isLoading ? (
-          <div className="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-        ) : (
-          "Login"
-        )}
-      </button>
-    </form>
-    <div className="mt-4 text-center">
-      <p className="text-sm text-gray-400">
-        Don't have an account? <Link href="/Register" className="text-customBlue">Sign Up</Link>
-      </p>
     </div>
-    {errorMessage && (
-      <div className="mt-4 text-red-500 text-center">{errorMessage}</div>
-    )}
-  </div>
-</div>
-      </div>
   );
 };
 
